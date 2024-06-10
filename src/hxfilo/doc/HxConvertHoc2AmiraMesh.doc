@@ -1,0 +1,28 @@
+\begin{hxmodule2}{ConvertHoc2AmiraMesh}{PUT ONE SENTENCE SUMMARY HERE}
+
+\hxlabel{HxConvertHoc2AmiraMesh}
+\hxfeatureid{HxConvertHoc2AmiraMesh}
+
+\begin{hxdescription}
+ \textit{ConvertTif2AmiraMesh} module allows to convert multiple hoc
+ files to amira mesh files at once.
+\end{hxdescription}
+
+\begin{hxports}
+\hxlabel{HxConvertHoc2AmiraMesh_portinputdirectory}
+\hxport{Input Directory}\\
+\hximage{HxConvertHoc2AmiraMesh_portinputdirectory}\\
+ Select the directory containing the hoc files to convert by
+ browsing throw file directory.
+
+\hxlabel{HxConvertHoc2AmiraMesh_portOutputDirectory}
+\hxport{Output Directory}\\
+\hximage{HxConvertHoc2AmiraMesh_portOutputDirectory}\\
+ Select the directory where the converted amira mesh files
+ should be saved by browsing throw file directory.\\
+ If the folder is not empty old amira mesh files may be
+ overwritten if the filenames equal.
+ 
+\end{hxports}
+
+\end{hxmodule2}

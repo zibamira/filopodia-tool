@@ -1,0 +1,34 @@
+\begin{hxmodule2}{CreateContourTree}{Create contour tree for image data}
+
+\hxlabel{HxCreateContourTree}
+\hxpackname{amira}
+
+\begin{hxdescription}
+  This module creates both the contour tree and the augmented contour
+  tree of a scalar field.  Since the contour tree is computed starting
+  from the maxima of the field, it is assumed that the objects of
+  interest have higher scalar values than the background.
+\end{hxdescription}
+
+\begin{hxconnections}
+  \hxlabel{HxCreateContourTree_data}
+  \hxport{Data}{\tt [required]}\\
+  The image data given as scalar field.
+\end{hxconnections}
+
+\begin{hxports}
+  \hxlabel{HxCreateContourTree_threshold}
+  \hxport{Threshold}\\
+  \hximage{HxCreateContourTree_threshold}\\
+  The contour tree is truncated such that only voxel with values
+  larger than the given threshold are considered.
+
+  \hxlabel{HxCreateContourTree_trees}
+  \hxport{Trees}\\
+  \hximage{HxCreateContourTree_trees}\\
+  The contour tree is computed from the join and the split tree.  If
+  these two trees are of interest, they can be output by selecting the
+  {\em join tree} or the {\em split tree} option, respectively.
+\end{hxports}
+
+\end{hxmodule2}

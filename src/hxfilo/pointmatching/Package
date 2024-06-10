@@ -1,0 +1,5 @@
+set PACKAGE {pointmatching}
+set LABELS {Common}
+set SHARE {
+    share/resources/pointmatching.rc
+}

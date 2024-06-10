@@ -1,0 +1,146 @@
+\begin{hxmodule2}{Shortest Path To Point Map}{PUT ONE SENTENCE SUMMARY HERE}
+
+\hxlabel{HxShortestPathToPointMap}
+\hxfeatureid{HxShortestPathToPointMap}
+
+\begin{hxdescription}
+ This module computes the shortest path throw a intensity 
+ image from each voxel to a given start voxel using an
+ intensity-weighted Dijkstra shortest path algorithm.\\
+ Thereby, each voxel represents a vertex in the graph and
+ the set of edges consists of all connections between
+ neighboring voxels (using N26 neighborhood for 3D-data).
+ The edge weight $w$ between two nodes $v_1$ and $v_2$
+ having intensities $I_1$ and $I_2$ is defined as \\
+ \begin{eqnarray}
+ w = \|\mathbf{v_1}-\mathbf{v_2}\|_2 + \mathbf{(\frac{2c}
+ {\mathbf{I'_1}+\mathbf{I'_2}})}^{p}
+ \end{eqnarray}\\
+ with $I' = \min(I,I_{max})$, whereby, $c$ is the intensity
+ weight, $p$ is the power of the intensity penalty and
+ $I_{max}$ is the top brightness. All three parameters are
+ user-adjustable (see below).\\
+ Under the assumption that the object has high intensities
+ the intensity term penalizes dark voxels or high intensitie
+ changes from bright to dark, since this woul mean the path
+ leaves the forground and traverse the background.\\
+ The start point can be given by defining the \textit{point
+ coordinates} or connect a spatial graph containing one
+ vertex at the point position.\\
+ The module offers the computed \textit{distance map} and
+ \textit{prior map} (see explanations below).\\
+ \\
+ Note: You can trace the shortest path from any point to the
+ start point using the module
+ \hxobjectname{HxTraceDijkstraMap}{TraceDijkstraMap}.
+ This module requires a spatial graph containing vertices
+ at the positions from which you want to trace to the point.
+ 
+\end{hxdescription}
+
+\begin{hxconnections}
+\hxlabel{HxShortestPathToPointMap_data}
+\hxport{Data}{\tt [required]}\\
+ To compute the shortest path from each voxel to a given
+ start voxel a 3D uniform scalar field is required.\\\\
+
+\hxlabel{HxShortestPathToPointMap_graph}
+\hxport{Graph}{\tt [optional]}\\
+ If you want to read the start point position from a given
+ graph containg one vertex at the wanted position, set the
+ radio butten \textit{Start position} to \textit{from graph} and
+ connect the spatial graph.\\
+ If no spatial graph is available you can create a new one
+ with the \textit{Filament} editor by executing the
+ following steps: 
+ \begin{itemize}
+ \item{go to \textit{Filament} editor,}
+ \item{create a new spatial graph by clicking on \textit{new}
+  (left),}
+ \item{enable the tracing tool \textit{trace filament}
+  (shortcut \textit{t}),}
+ \item{click in the gray scale image on the point position
+  of interest.}
+  \item{connect new graph with module}
+ \end{itemize}
+ After connecting a valid graph, the point coordinates will
+ be updated.
+\end{hxconnections}
+
+\begin{hxports}
+\hxlabel{HxShortestPathToPointMap_Start position}
+\hxport{Start position}\\
+\hximage{HxShortestPathToPointMap_Start position}\\
+ Decide if you want to read the start point from given point
+ coordinates or by a spatial graph containing one vertex at
+ the point position. By selecting \textit{from graph} a new 
+ data port \textit{Graph} is shown, which allows to connect
+ a spatial graph.\\\\
+
+\hxlabel{HxShortestPathToPointMap_PointCoords}
+\hxport{Point Coordinates}\\
+\hximage{HxShortestPathToPointMap_PointCoords}\\
+ Set the point position (world coordinates) of the start
+ node. The nearest voxel position will be computed and the
+ shortest path from each voxel in the intensity image to
+ this start voxel will be calculated.\\
+ You can find the coodinates by using \textit{Ortho Slice}:
+ \begin{itemize}
+ \item{connect \textit{Ortho Slice} to the image}
+ \item{slide to the correct slice number}
+ \item{enable the {interact} tool (mouse symbol)}
+ \item{point on the position of interest}
+ \item{read point coordinates in lower left corner}
+ \end{itemize}
+ If you connect a spatial graph with one vertex, the point
+ coordinates will be updated automatically.\\\\
+
+\hxlabel{HxShortestPathToPointMap_intensityWeight}
+\hxport{Intensity Weight}\\
+\hximage{HxShortestPathToPointMap_intensityWeight}\\
+ The intensity weight weights the intensity penalty.
+ It should be a positive float value. Increase the value if
+ you want to penaltize the intensity change more, decrease
+ if not. The value $w=0$ will disable the intensity penalty
+ and only a distance based on the voxel length will be 
+ computed.\\\\
+
+\hxlabel{HxShortestPathToPointMap_intensityPower}
+\hxport{Intensity Power}\\
+\hximage{HxShortestPathToPointMap_intensityPower}\\
+ The intensity power also influence the intensity penalty.
+ It defines the power of the intensity term (see above), 
+ following the law of power.\\\\
+
+\hxlabel{HxShortestPathToPointMap_topBrightness}
+\hxport{Top Brightness}\\
+\hximage{HxShortestPathToPointMap_topBrightness}\\
+ To avoid that long paths through bright voxels are
+ preferred over slightly shorter paths with darker
+ foreground voxels, foreground intensity is capped at a
+ user-adjustable value $I_{max}$. A integer value between
+ the minimal and maximal intensity of the image is
+ reasonable.\\\\
+
+\hxlabel{HxShortestPathToPointMap_output}
+\hxport{Output}\\
+\hximage{HxShortestPathToPointMap_output}\\
+ Decide, in which results you are interested in:
+ \begin{itemize}
+ \item{\textbf{Distance Map}:}\\
+ The \textit{distance map} is a 3D uniform scalar field of
+ same size as the intensity image. It stors the computed
+ distance from each voxel to the given start node (sum of 
+ all edges passed from start voxel to current voxel).\\
+ \item{\textbf{Prior Map}:}\\
+ The \textit{prior map} is a 3D uniform label field of
+ same size as the intensity image with values from 0 to 26.
+ This map indicates for each voxel from which neighbor (N26
+ neighborhood) the shortest path comes from. This allows to
+ trace the shortest path back to the start. 
+ \end{itemize}
+
+
+\end{hxports}
+
+\end{hxmodule2}

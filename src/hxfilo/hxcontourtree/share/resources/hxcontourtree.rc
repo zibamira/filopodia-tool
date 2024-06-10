@@ -1,0 +1,58 @@
+if { [__isProduct "AmiraZIBEdition"] } {
+
+module -name "Create Contour Tree" \
+    -primary "HxLattice3" \
+    -category "Segmentation" \
+    -class "HxCreateContourTree"\
+    -package "hxcontourtree"
+
+module -name "Contour Tree Segmentation" \
+    -primary "HxLattice3" \
+    -category "Segmentation" \
+    -class "HxContourTreeSegmentation"\
+    -package "hxcontourtree"
+
+module -name  "Propagate Contours" \
+    -primary  "HxLattice3"\
+    -class    "HxPropagateContours" \
+    -category "Segmentation" \
+    -package  "hxcontourtree"
+
+module -name  "Build Contour Graph" \
+    -primary  "HxLattice3" \
+    -class    "HxTouchPointGraphBuilder" \
+    -category "Segmentation" \
+    -package  "hxcontourtree"
+
+module -name "Contour Tree Segmentation Script" \
+    -package "hxscriptobj" \
+    -primary "HxLattice3" \
+    -category "Segmentation" \
+    -icon "TVDefScriptObject" \
+    -proc {
+        set mod [load $AMIRA_ROOT/share/script-objects/ContourTreeSegmentation.scro]
+        if { [exists $PRIMARY] } {
+            $mod data connect $PRIMARY
+            $mod fire
+        }
+    }
+} else {
+
+module -name "Contour Tree Segmentation" \
+    -primary "HxLattice3" \
+    -category "{Experimental>Segmentation}" \
+    -class "HxContourTreeSegmentation"\
+    -package "hxcontourtree"
+
+module -name  "Propagate Contours" \
+    -primary  "HxLattice3"\
+    -class    "HxPropagateContours" \
+    -category "{Experimental>Segmentation}" \
+    -package  "hxcontourtree"
+}
+
+module -name  "Merge Tree Segmentation" \
+    -primary  "HxUniformScalarField3" \
+    -category "Experimental" \
+    -class    "HxMergeTreeSegmentation"\
+    -package  "hxcontourtree"

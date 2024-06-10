@@ -1,0 +1,294 @@
+if { [__isProduct "AmiraZIBEdition"] } {
+
+
+module -name     "ClipSpatialGraph" \
+       -primary  "HxSpatialGraph" \
+       -category "Compute" \
+       -class    "HxClipSpatialGraph" \
+       -package  "hxfilo"
+
+module -name     "ClipSpatialGraphByThickness" \
+       -primary  "HxSpatialGraph" \
+       -category "Compute" \
+       -class    "HxClipSpatialGraphByThickness" \
+       -package  "hxfilo"
+
+module -name     "CompareFilopodiaSpatialGraphs" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxCompareFilopodiaSpatialGraphs" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "AdjustWindowLevelOfAmiraMeshFile" \
+       -class    "HxAdjustWindowLevelOfAmiraMesh" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "ConvertHoc2AmiraMesh" \
+       -class    "HxConvertHoc2AmiraMesh" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "ConvertTif2AmiraMesh" \
+       -class    "HxConvertTif2AmiraMesh" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "FieldCorrelation" \
+       -primary  "HxUniformScalarField3" \
+       -category "Compute" \
+       -class    "HxFieldCorrelation" \
+       -package  "hxfilo"
+
+module -name     "Filopodia Centerline Tree" \
+       -primary  "HxLattice" \
+       -class    "HxFilopodiaTEASAR" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "FilopodiaStatistics" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxFilopodiaStats" \
+       -category "Compute" \
+       -package  "hxfilo"
+       
+module -name     "FilopodiaTrack" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxFilopodiaTrack" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "Split Channels Of 3D Image" \
+       -primary  "HxUniformScalarField3" \
+       -class    "HxExtractSlicesFrom3DImage" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "GrowthConeFieldTrack" \
+       -class    "HxGrowthConeFieldTrack" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "GrowthConeTrack" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxGrowthConeTrack" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "LabelInsideOutside" \
+       -primary  "HxSpatialGraph" \
+       -category "Compute" \
+       -class    "HxLabelInsideOutside" \
+       -package  "hxfilo"
+
+module -name     "LabelPSFCorrection" \
+       -primary  "HxUniformLabelField3" \
+       -category "Compute" \
+       -class    "HxLabelPSFCorrection" \
+       -package  "hxfilo"
+
+module -name     "LandweberDeconvolution" \
+       -primary  "HxUniformScalarField3" \
+       -category "Compute" \
+       -class    "HxLandweberDeconvolution" \
+       -package  "hxfilo"
+
+module -name     "MergeGrowthConeCenters" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxMergeGrowthConeCenters" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "MergeSpatialGraphs" \
+       -class    "HxMergeSpatialGraphs" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "NodeAtRegionMaximum" \
+       -primary  "HxUniformScalarField3" \
+       -class    "HxNodeAtRegionMaximum" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "RetraceFilopodia" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxRetraceFilopodia" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "SetFilopodiaBaseNodes" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxSetFilopodiaBaseNodes" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "Shortest Path To Point Map" \
+       -primary  "HxUniformScalarField3" \
+       -class    "HxShortestPathToPointMap" \
+       -category "Compute" \
+       -package  "hxfilo"
+
+module -name     "SplitLabelField" \
+       -primary  "HxUniformLabelField3" \
+       -category "Compute" \
+       -class    "HxSplitLabelField" \
+       -package  "hxfilo"
+
+module -name     "TraceDijkstraMap" \
+       -primary  "HxSpatialGraph" \
+       -category "Compute" \
+       -class    "HxTraceDijkstraMap" \
+       -package  "hxfilo"
+
+} else {
+
+module -name     "ClipSpatialGraph" \
+       -primary  "HxSpatialGraph" \
+       -category "{Experimental>Compute}" \
+       -class    "Compute" \
+       -package  "hxfilo"
+
+module -name     "ClipSpatialGraphByThickness" \
+       -primary  "HxSpatialGraph" \
+       -category "{Experimental>Compute}" \
+       -class    "HxClipSpatialGraphByThickness" \
+       -package  "hxfilo"
+
+module -name     "CompareFilopodiaSpatialGraphs" \
+       -class    "HxCompareFilopodiaSpatialGraphs" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+
+module -name     "ConvertHoc2AmiraMesh" \
+       -class    "HxConvertHoc2AmiraMesh" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+
+module -name     "ConvertTif2AmiraMesh" \
+       -class    "HxConvertTif2AmiraMesh" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+
+module -name     "FieldCorrelation" \
+       -primary  "HxUniformScalarField3" \
+       -category "{Experimental>Compute}" \
+       -class    "HxFieldCorrelation" \
+       -package  "hxfilo"
+
+module -name     "Filopodia Centerline Tree" \
+       -primary  "HxLattice" \
+       -class    "HxFilopodiaTEASAR" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+
+module -name     "FilopodiaStatistics" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxFilopodiaStats" \
+       -category "{Exprerimental>Compute}" \
+       -package  "hxfilo"
+
+module -name     "FilopodiaTrack" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxFilopodiaTrack" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+
+module -name     "GrowthConeFieldTrack" \
+       -class    "HxGrowthConeFieldTrack" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+
+module -name     "GrowthConeTrack" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxGrowthConeTrack" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"       
+
+module -name     "MergeGrowthConeCenters" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxMergeGrowthConeCenters" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+
+module -name     "MergeSpatialGraphs" \
+       -class    "HxMergeSpatialGraphs" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+       
+module -name     "NodeAtRegionMaximum" \
+       -primary  "HxUniformScalarField3" \
+       -class    "HxNodeAtRegionMaximum" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+       
+module -name     "LabelInsideOutside" \
+       -primary  "HxSpatialGraph" \
+       -category "{Experimental>Compute}" \
+       -class    "HxLabelInsideOutside" \
+       -package  "hxfilo"
+
+module -name     "LabelPSFCorrection" \
+       -primary  "HxUniformLabelField3" \
+       -category "Compute" \
+       -class    "{Experimental>Compute}" \
+       -package  "hxfilo"
+    
+module -name     "LandweberDeconvolution" \
+       -primary  "HxUniformScalarField3" \
+       -category "{Experimental>Compute}" \
+       -class    "HxLandweberDeconvolution" \
+       -package  "hxfilo"
+
+module -name     "RetraceFilopodia" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxRetraceFilopodia" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+    
+module -name     "SetFilopodiaBaseNodes" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxSetFilopodiaBaseNodes" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+
+module -name     "Shortest Path To Point Map" \
+       -primary  "HxUniformScalarField3" \
+       -class    "HxShortestPathToPointMap" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+
+module -name     "SplitLabelField" \
+       -primary  "HxUniformLabelField3" \
+       -category "{Experimental>Compute}" \
+       -class    "HxSplitLabelField" \
+       -package  "hxfilo"
+
+module -name     "TraceDijkstraMap" \
+       -primary  "HxSpatialGraph" \
+       -class    "HxTraceDijkstraMap" \
+       -category "{Experimental>Compute}" \
+       -package  "hxfilo"
+
+}
+
+# ----------------------------------------------------------------------------
+#   Filament editor Plug-in mechanism 
+# ----------------------------------------------------------------------------
+if { [info exists hxneuroneditorplugins] == 0} {
+    set hxneuroneditorplugins [list];
+}
+
+lappend hxneuroneditorplugins {FilopodiaTools QxFilopodiaTools_init_plugin    hxfilo}
+lappend hxneuroneditorplugins {ReplaySpatialGraphEditLog QxReplaySpatialGraphEditLog_init_plugin    hxfilo}
+
+# -----------------------------------------------
+#   SpatialgraphOperation logging Plug-in mechanism 
+# -----------------------------------------------
+
+if { [info exists spatialgraphoperationplugins] == 0} {
+    set spatialgraphoperationplugins [list];
+}
+
+lappend spatialgraphoperationplugins {FilopodiaGraphOperationSet_plugin_factory   hxfilo}
+
+

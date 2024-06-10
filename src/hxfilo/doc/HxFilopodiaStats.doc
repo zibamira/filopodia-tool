@@ -1,0 +1,79 @@
+\begin{hxmodule2}{FilopodiaStatistics}{PUT ONE SENTENCE SUMMARY HERE}
+
+\hxlabel{HxFilopodiaStats}
+\hxfeatureid{HxFilopodiaStats}
+
+\begin{hxdescription}
+ The \textit{Filopodia Statistic} module can be connected to
+ a spatial graph representing a reconstructed growth cone.
+ The module computes and analyse various features of the
+ filopodia like life time, length, and speed and list them 
+ into spread sheets. 
+\end{hxdescription}
+
+\begin{hxconnections}
+\hxlabel{HxFilopodiaStats_data}
+\hxport{Data}{\tt [required]}\\
+ Filopodia Spatial Graph with following label groups:
+ \begin{itemize}
+ 	\item Filopodia
+ 	\item Time Step
+    \item Node Type
+    \item Location
+    \item Manual Node Match
+    \item Manual Geometry
+ \end{itemize}
+
+\end{hxconnections}
+
+\begin{hxports}
+\hxlabel{HxFilopodiaStats_output}
+\hxport{Output}\\
+\hximage{HxFilopodiaStats_output}\\
+ The \textit{Filopodia Statistic} module can return up to
+ three spread sheets containing the computed filopodia and 
+ filament properties:
+ \begin{itemize}
+ 	\item \textit{Filament Statistic}\\
+    We call a filopodium at a specific timestep a filament.
+	For each filament the time step of appearance, the
+    length, the angle related to the root node, the base and
+    tip position as well as the assigned filopodia ID is
+    stored.  
+    \item \textit{Filopodia Statistic}\\
+    This table stores for each filopodium the first, last
+    time step of appearence and the resulting life time.
+	Additionally, various statical information about the
+    filopodia length is computed. First, the mean and final
+    length as well as the standard deviation of all
+    filaments assigned to the filopodia is calculated. Also 
+    the number of extention events (filopodia is longer than
+    before), retraction events (filopodia is shorter than
+    before) and stabilizations (length change is smaller
+    than a chosen threshold) are stored.
+    \item \textit{Length Statistic}\\
+    For each filopodium the filament length in each time step
+    is listed. This table can be used to compute heat maps
+    displaying the change in length over time depending on 
+ 	the orientation of the filopodium.
+ \end{itemize}
+ 
+ The table of interests can be chosen by
+ checking the relevant check boxes.
+
+\hxlabel{HxFilopodiaStats_StabilizationThreshold}
+\hxport{Stabilization Threshold}\\
+\hximage{HxFilopodiaStats_StabilizationThreshold}\\
+ The user can choose a stabilization threshold. If the
+ length of a filopodium in two timesteps differs less than
+ the given threshold the event is classified as stable.
+
+\hxlabel{HxFilopodiaStats_action}
+\hxport{Action}\\
+\hximage{HxFilopodiaStats_action}\\
+ Pressing the action button starts computation of filopodia
+ statistic and shows all spread sheets chosen by the user.
+
+\end{hxports}
+
+\end{hxmodule2}

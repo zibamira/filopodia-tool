@@ -1,0 +1,59 @@
+\begin{hxmodule2}{SplitLabelField}{PUT ONE SENTENCE SUMMARY HERE}
+
+\hxlabel{HxSplitLabelField}
+\hxfeatureid{HxSplitLabelField}
+
+\begin{hxdescription}
+ The module \textit{SplitLabelField} crops a 3D label image
+ around each object. It is required that all objects have
+ their own label. For each label the cropping window encloses
+ the extend of the labeled object. Additionally, a boundary
+ can be set expanding the window in each direction by the
+ chosen number of voxels.\\
+ The output contains the a cropped label image for each
+ object.
+\end{hxdescription}
+
+\begin{hxconnections}
+\hxlabel{HxSplitLabelField_data}
+\hxport{Data}{\tt [required]}\\
+ The input label image to be analyzed.
+ 
+\hxlabel{HxSplitLabelField_Image}
+\hxport{Image}{\tt [optional]}\\
+ Providing an intensity image, also the image will be
+ cropped in the same size as the label image.
+
+\hxlabel{HxSplitLabelField_Seeds}
+\hxport{Seeds}{\tt [optional]}\\
+ You can also add a spatial graph containing a vertice in
+ each label you are interested in. You can for example use
+ the filament editor, add a new spatial graph and set new
+ nodes in the gray scale image within the objects of
+ interests.
+
+\end{hxconnections}
+
+\begin{hxports}
+\hxlabel{HxSplitLabelField_BoundarySize}
+\hxport{Boundary size}\\
+\hximage{HxSplitLabelField_BoundarySize}\\
+ The boundary size expands the cropping window by the set
+ number of voxels
+
+\hxlabel{HxSplitLabelField_ImageBackground}
+\hxport{Image background}\\
+\hximage{HxSplitLabelField_ImageBackground}\\
+ If you add an intensity image you can decide how to handle
+ the image background. Two options are offered:
+ 
+ \begin {itemize}
+ \item \textbf{Keep intensity}: Intensity of backgound
+ voxels is kept.
+ \item \textbf{Set to background}: Intensity of backgound
+ voxels will be set to 0.
+
+
+\end{hxports}
+
+\end{hxmodule2}

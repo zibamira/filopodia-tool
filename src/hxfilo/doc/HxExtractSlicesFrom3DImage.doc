@@ -1,0 +1,27 @@
+\begin{hxmodule2}{Split Channels Of 3D Image}{Split channes stacked ina single 3D image}
+
+\hxlabel{HxExtractSlicesFrom3DImage}
+\hxfeatureid{HxExtractSlicesFrom3DImage}
+
+\begin{hxdescription}
+Imagine 3D image with multiple (e.g. 3) channels stacked in a single image file.
+Meaning each third slice will be of the same channel.
+Such image of course cannot be view efficiently with the Ortho Slice module, thus it needs to be split in multiple different images, one per channel.
+This module splits image into as multiple images as there are slices and generates image object for each channel.
+\end{hxdescription}
+
+\begin{hxconnections}
+\hxlabel{HxExtractSlicesFrom3DImage_data}
+\hxport{Data}{\tt [required]}\\
+Input scalar field with uniform coordinates.
+\end{hxconnections}
+
+\begin{hxports}
+\hxlabel{HxExtractSlicesFrom3DImage_Z_step}
+\hxport{Slice step}\\
+\hximage{HxExtractSlicesFrom3DImage_Z_step}\\
+This paramaters sets the amount of channels in the image, aka., which step should be used to split channels.
+
+\end{hxports}
+
+\end{hxmodule2}

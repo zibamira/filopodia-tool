@@ -1,0 +1,37 @@
+\begin{hxmodule2}{MergeSpatialGraphs}{PUT ONE SENTENCE SUMMARY HERE}
+
+\hxlabel{HxMergeSpatialGraphs}
+\hxfeatureid{HxMergeSpatialGraphs}
+
+\begin{hxdescription}
+ With the \textit{MergeSpatialGraphs} module you can merge
+ multiple spatial graphs from a selected directory into a
+ timedependend graph.\\
+ The output graph includes all components (vertices,
+ segments, labels and Attributes) of the spatial
+ graphs stored in the selected folder. Additionally, a new 
+ hierarchical label group "\textit{Time Step}" is added.
+ Each spatial gets its own time ID on condition that the
+ filenames include a time expression (see below).
+ 
+\end{hxdescription}
+
+\end{hxconnections}
+
+\begin{hxports}
+\hxlabel{HxMergeSpatialGraphs_InputDirectory}
+\hxport{Input directory}\\
+\hximage{HxMergeSpatialGraphs_InputDirectory}\\
+ Select the directory containing the Amira Mesh files of the
+ spatial graphs by browsing throw file directory.\\
+ Note that the folder should not contain other am files and
+ that also subfolders are considered.
+ The filenames should include a regular expression
+ "_t([0-9]\{1,3\}).am" indicating the time step.\\
+
+
+\end{hxports}
+
+
+
+\end{hxmodule2}

@@ -1,0 +1,9 @@
+set PACKAGE {hxcontourtree}
+set LABELS {Common}
+set SHARE {
+    data/tutorials/contourtree/foam_ContourTreeSegmentation.hx
+    data/tutorials/contourtree/foam_HierarchicalWatershed_versus_ContourTreeSegmentation.hx
+    data/tutorials/contourtree/foam_WatershedSeparation-8-SegmentedPores_versus_ContourTreeSegmentation.hx
+    share/resources/hxcontourtree.rc
+    share/script-objects/ContourTreeSegmentation.scro
+}

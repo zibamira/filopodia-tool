@@ -1,0 +1,190 @@
+\begin{hxzibtutproj}{Object Separation using the Contour Tree Segmentation Module}{How to do
+image segmentation using contour tree segmentation?}
+
+\hxlabel{tutContourTreeSegmentation}
+\hxpackname{Image Segmentation}
+
+WARNING: This tutorial will only fully work with Amira 6, Avizo 9, or 
+Amira ZIB Edition.  It won't work with the amira-git-based ZIBAmira.
+
+This tutorial explains how to use the
+\hxobjectname{HxContourTreeSegmentation}{Contour Tree Segmentation}
+module for separating objects that cannot be separated directly from
+the grey-value image. To enable a separation, first a binary
+segmentation is carried out. On this binary segmentation, the distance
+map is computed which serves as input data to the
+{\em Contour Tree Segmentation} module.
+
+For a short introduction to the {\em Contour Tree Segmentation} module
+itself , please see its
+\hxobjectname{HxContourTreeSegmentation}{help}.
+
+The tutorial also explains the relationship between contour tree
+segmentation and hierarchical watershed.  Additionally, it presents a
+comparison of the segmentation results obtained using seed-based
+watershed, hierarchical watershed and contour tree segmentation. The
+tutorial is organized as follows:
+
+\begin{enumerate}
+\item \link{TutContourTreeSegmentation-comparisonToHierarchicalWatershed}{What
+    is the relationship between hierarchical watershed and the contour
+    tree segmentation}?
+\item \link{TutContourTreeSegmentation-distanceMap}{How to compute the
+    distance map for contour tree segmentation}?
+\item \link{TutContourTreeSegmentation-contourTreeSegmentation}{How
+    to apply the Contour Tree Segmentation module}?
+\item \link{TutContourTreeSegmentation-compareResultWithSeedBasedWatershed}{Comparison 
+    with seed-based watershed}.
+\item \link{TutContourTreeSegmentation-compareResultWithHierarchicalWatershed}{Comparison
+    with hierarchical watershed}.
+\end{enumerate}
+
+It assumes that you are familiar with the basic concepts of
+\ProductName.  In particular, you should know how to load files, how
+to interact with the viewer, and how to connect modules to data
+objects.  All these topics are covered in \treft{Chapter}{TutStart}{-
+  Getting started} of the \ProductName User's Guide.
+
+\subsection{Hierarchical watershed and the contour tree segmentation}
+\label{TutContourTreeSegmentation-comparisonToHierarchicalWatershed}
+
+In principle, the contour tree segmentation as implemented in the
+\hxobjectname{HxContourTreeSegmentation}{Contour Tree Segmentation}
+module is very similar to hierarchical watershed. Both algorithms
+first compute a fine segmentation of the image which is then modified
+by merging neighbored regions with respect to a merging threshold. In
+order to allow an efficient merging of regions, a merge tree is built
+up. Once the initial segmentation and the merge tree have been
+computed, regions can be merged efficiently.
+
+One difference between the two methods is that hierarchical watershed
+starts the segmentation from local minima while the contour tree
+segmentation starts from local maxima. Hence, when segmenting the same
+image with both algorithms, the data set needs to be inverted.
+
+How similar the results of the two algorithms are depends on a number
+of factors. First or all, it is influenced by how the merge tree is
+generated and how merging is done. Second, the results will differ
+when using a flooding or a steepest decent approach for creating the
+initial segmentation. We believe that the differences that can be seen
+between the results obtained using
+\hxobjectname{HxWatershedSegmentation}{Hierarchical Watershed}
+and the
+\hxobjectname{HxContourTreeSegmentation}{Contour Tree Segmentation}
+module are mainly due to the last factor mentioned. Please see
+\link{TutContourTreeSegmentation-compareResultWithHierarchicalWatershed}{below}
+for a detailed comparison.
+
+\subsection{Binary segmentation and distance map computation}
+\label{TutContourTreeSegmentation-distanceMap}
+
+At first, we explain how the image data needs to be prepared. That is,
+we will carry out a binary segmentation followed by a distance map
+computation on the binary segmentation result. For the binary
+segmentation, several possibilities exist. In this tutorial, we use
+the \hxobjectname{HxInteractiveThreshold}{InteractiveThresholding}
+module.
+
+\begin{itemize}
+\item Load {\tt \hxroot}\verb+/data/images/foam/foam.am+
+  into the \ProductName workspace. A green data icon appears in the
+  \ifdefined \ZIBAmira
+  {\em Pool}.
+  \else
+  {\em Project View}.
+  \fi
+\item Attach an
+  \hxobjectname{HxInteractiveThreshold}{Interactive Thresholding}
+  module (in category {\em Image Segmentation/Binarization}) to the
+  data.
+\item In the {\em Interactive Thresholding} module, set the {\em
+    Intensity range} to 0 (min) and 39 (max) and press the {\em Apply}
+  button.
+\item Attach a \hxobjectname{HxComputeDistanceMap}{Distance Map} module
+  to the resulting object named {\em foam.thresholded}.
+\item In the {\em Distance Map} module, set the parameters {\em Type}
+  to {\em Euclid} and {\em Region} to {\em Inside}, and press the {\em
+    Apply} button. As result, a green icon named {\em foam.DistField}
+  appears in the
+  \ifdefined \ZIBAmira
+  {\em Pool}.
+  \else
+  {\em Project View}.
+  \fi
+\end{itemize}
+
+\subsection{Contour Tree Segmentation module}
+\label{TutContourTreeSegmentation-contourTreeSegmentation}
+
+The object created last ({\em foam.DistField}) serves as input to the
+{\em Contour Tree Segmentation} module. The use of this module is
+described in this section.
+
+\begin{itemize}
+\item Attach a
+  \hxobjectname{HxContourTreeSegmentation}{Contour Tree Segmentation}
+  module (in category {\em Segmentation}) to {\em foam.DistField}.
+\item Set the {\em Threshold} port to 0.001 and select the option {\em
+    Fast Segmentation}. Check the {\em auto-refresh} button for this
+  module. As result, a new green icon labelled {\em foam.segmentation}
+  is created.
+\item Attach a \hxobjectname{HxCastField}{Convert Image Type} module
+  to this object. Select {\em 16-bit label} as {\em Output Type} and
+  check the {\em auto-refresh} button for this module, too. The result
+  is an object named {\em foam.to-labelfield-16_bits}.
+\item To view the result of the segmentation, attach a
+  \hxobjectname{HxGMC}{Generate Surface} to the last result, set the
+  {\em Smoothing Type} to {\em Constrained Smoothing}, and also check
+  the {\em auto-refresh} button. The result is an object named {\em
+    foam.surf}.
+\item Finally, attach a \hxobjectname{HxDisplaySurface}{Surface View}
+  module to {\em foam.surf}.
+\end{itemize}
+
+Now, the three-dimensional segmentation resulting from the {\em
+  Contour Tree Segmentation} module can be inspected. Another
+possibility is to use the \hxobjectname{HxVoxelizedRender}{Voxelized
+  Rendering} module, which can be directly attached to the {\em
+  foam.to-labelfield-16_bits} object. One problem with the {\em
+  Voxelized Rendering} module is, however, that it currently offers
+only eight colours, and hence it might be difficult to judge the
+segmentation.
+
+To find a good segmentation, go to the {\em Contour Tree Segmentation}
+module and change the {\em Persistence Value}. Try out different
+values.  Since the {\em auto-refresh} options are checked in all
+modules, the new segmentation should be visible after a few seconds
+without requiring any further action. Finally set the persistence
+value to 1.5, which seems to be a good value. The results should look
+like as in this
+\hxscript{../../../../data/tutorials/contourtree/foam_ContourTreeSegmentation.hx}{network}.
+
+\subsection{Contour Tree Segmentation vs. seed-based watershed}
+\label{TutContourTreeSegmentation-compareResultWithSeedBasedWatershed}
+
+The {\em Contour Tree Segmentation} module allows one to achieve a very
+good segmentation directly from a scalar field, in this case, the
+distance field of a binary segmentation. A more complicated network
+achieving similar results can be obtained using seed-based watershed
+as implemented in the \hxobjectname{fastwatershed}{Marker-Based
+  Watershed} module. The
+\hxscript{../../../../data/tutorials/image-processing-advanced/WatershedSeparation-8-SegmentedPores.hx}{network}
+first creates seeds from the distance map using several modules. These
+seeds are then used as input to the seed-based watershed module. A
+comparison of the results obtained using the seed-based watershed
+approach or the contour tree segmentation can be seen in this
+\hxscript{../../../../data/tutorials/contourtree/foam_WatershedSeparation-8-SegmentedPores_versus_ContourTreeSegmentation.hx}{network}.
+
+\subsection{Contour Tree Segmentation vs. hierarchical watershed}
+\label{TutContourTreeSegmentation-compareResultWithHierarchicalWatershed}
+
+Another option to separate the objects from one another is to use the
+\hxobjectname{HxWatershedSegmentation}{Hierarchical Watershed}
+module. In order to generate reasonable results, however, this module
+requires floating point scalar fields as input. Hence, the Euclidean
+distance map should be used. While the results are in principle
+comparable to the results of the contour tree segmentation, many
+artifacts are visible in the result, as can be seen in this
+\hxscript{../../../../data/tutorials/contourtree/foam_HierarchicalWatershed_versus_ContourTreeSegmentation.hx}{network}.
+
+\end{hxzibtutproj}

@@ -1,0 +1,13 @@
+################################################################################
+#
+# Resource file of custom package hxfilo
+#
+################################################################################
+
+
+module -name     "FILOPODIA" \
+       -primary  "HxUniformScalarField3" \
+       -class    "hxfilo" \
+       -category "Local" \
+       -package  "hxfilo" \
+       -icon     "TVDefCompute"

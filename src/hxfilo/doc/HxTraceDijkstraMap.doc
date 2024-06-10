@@ -1,0 +1,45 @@
+\begin{hxmodule2}{TraceDijkstraMap}{PUT ONE SENTENCE SUMMARY HERE}
+
+\hxlabel{HxTraceDijkstraMap}
+\hxfeatureid{HxTraceDijkstraMap}
+
+\begin{hxdescription}
+ This module traces the track from specified nodes to a
+ given start point. Therefor, the prior map that was computed by 
+ \hxobjectname{HxShortestPathToPointMap}{ShortestPathToPointMap}
+ is used. This module bases on the Dijkstra algorithm.\\
+ The \textit{TraceDijkstraMap} module requires a spatial graph
+ containing the nodes you want to trace to the starting point
+ see below). Starting at the voxel position of each node node
+ the prior map will be traced back following the given prior
+ voxels.
+\end{hxdescription}
+
+\begin{hxconnections}
+\hxlabel{HxTraceDijkstraMap_data}
+\hxport{Data}{\tt [required]}\\
+ Spatial graph containing vertices from which you want to
+ trace to the start point of the prior map.\\
+ If no spatial graph is available you can create a new one
+ with the Filament editor by executing the following steps:
+ \begin{itemize}
+ \item load the gray scale image of the object you want to
+ 		trace,
+ \item go to Filament editor,
+ \item ensure that the gray scale image is shown,
+ \item create a new spatial graph by clicking on new (left),
+ \item enable the tracing tool trace filament (shortcut t),
+ \item click in the gray scale image on the point position
+ of interest.
+ \item connect new graph with module
+ \end{itemize}
+
+\hxlabel{HxTraceDijkstraMap_dijkstrapriormap}
+\hxport{Dijkstra prior map}{\tt [required]}\\
+ 3D label field of prior map that was the result of 
+ \hxobjectname{HxShortestPathToPointMap}{ShortestPathToPointMap}
+ computed with Dijkstra algorithm.
+
+\end{hxconnections}
+
+\end{hxmodule2}

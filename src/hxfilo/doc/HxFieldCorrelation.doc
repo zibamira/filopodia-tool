@@ -1,0 +1,63 @@
+\begin{hxmodule2}{FieldCorrelation}{PUT ONE SENTENCE SUMMARY HERE}
+
+\hxlabel{HxFieldCorrelation}
+\hxfeatureid{HxFieldCorrelation}
+
+\begin{hxdescription}
+ The \textit{FieldCorrelation} module computes the
+ normailzed cross corrlation (NCC) between an image and a 
+ given template. To minimize the computing time a search
+ window can be set by defining the size and the start
+ voxel of the window. The template center is shifted to
+ all voxel centers within the search window on discrete steps.
+ At each position the NCC is computed using the ITK
+ (Johnson, 2013) implementation.\\
+ The result is a 3D uniform scalar field with the size of
+ the search window with values in the range from -1 to 1,
+ where +1 indicates the strongest possible agreement and -1
+ the strongest possible disagreement. 0 indicates no
+ relation at all.\\
+ You can analyze the result by using e.g. \textit{Regional
+ Maxima} to find the maximum correlation in the search area.
+ \\\\
+ {\tt Johnson, H.J., McCormick, M., Ibanez, L. and The Insight
+ Software Consortium (2013):\\
+ The ITK Software Guide. 4th edition. Kitware, Inc.}
+ 
+\end{hxdescription}
+
+\begin{hxconnections}
+\hxlabel{HxFieldCorrelation_data}
+\hxport{Data}{\tt [required]}\\
+ Input must be 3D scalar field with unsigned chars or floats.
+
+\hxlabel{HxFieldCorrelation_Template}
+\hxport{Template}{\tt [required]}\\
+ Template must be 3D scalar field with unsigned chars or
+ floats.
+
+\end{hxconnections}
+
+\begin{hxports}
+\hxlabel{HxFieldCorrelation_Start}
+\hxport{Start}\\
+\hximage{HxFieldCorrelation_Start}\\
+ Set the start voxel position of the 3D search window.\\
+ You can use the cropping tool to estimate a reasonable
+ window and use the \textit{min index} as start coordinates.
+ \\\\
+
+\hxlabel{HxFieldCorrelation_Size}
+\hxport{Size}\\
+\hximage{HxFieldCorrelation_Size}\\
+ Define the size of the 3D search window to decrease
+ computing time.\\
+ If new image data is connected the size will be
+ automatically set to the image size.
+ You can use the cropping tool to estimate a reasonable
+ window and use the difference between \textit{min index}
+ and \textit{max index} as search window size.\\\\
+
+\end{hxports}
+
+\end{hxmodule2}

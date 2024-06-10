@@ -1,0 +1,33 @@
+\begin{hxmodule2}{LabelInsideOutside}{PUT ONE SENTENCE SUMMARY HERE}
+
+\hxlabel{HxLabelInsideOutside}
+\hxfeatureid{HxLabelInsideOutside}
+
+\begin{hxdescription}
+ The \textit{LabelInsideOutside} module adds a new label
+ group "\textit{Location}" including the labels "\textit{inside}"
+ and "\textit{outside}". All components are labeled to
+ inside or outside depending on there position related to
+ the root node and base nodes.\\
+ If there is a base node on the shortest path from the
+ component to the root node, the component is labeled as
+ "\textit{outside}" and "\textit{inside}" otherwise. Roots
+ are classified as inside whereby base nodes are related to
+ the outside.
+ 
+\end{hxdescription}
+
+\begin{hxconnections}
+\hxlabel{HxLabelInsideOutside_data}
+\hxport{Data}{\tt [required]}\\
+ The module requires a spatial graph with following label
+ groups:
+ \begin{itemize}
+ \item Time Step
+ \item Node Type with labels
+       \{TIP_NODE, BRANCHING_NODE, BASE_NODE, ROOT_NODE\}
+ \end{itemize}
+
+\end{hxconnections}
+
+\end{hxmodule2}

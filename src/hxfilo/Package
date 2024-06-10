@@ -1,0 +1,13 @@
+set PACKAGE {hxfilopodia}
+set LABELS {Common}
+set SHARE {
+    data/colormaps/filopodiaGlow.am
+    share/png/neuronEditorConnectFilopodia.png
+    share/png/neuronEditorDeleteFilopodia.png
+    share/png/neuronEditorMatchFilopodia.png
+    share/png/neuronEditorMoveFilopodia.png
+    share/png/neuronEditorSelectFilopodia.png
+    share/png/neuronEditorTraceFilopodia.png
+    share/resources/hxfilopodia.rc
+    share/resources/test_hxfilopodia.rc
+}

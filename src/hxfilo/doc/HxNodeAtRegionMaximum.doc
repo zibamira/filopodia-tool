@@ -1,0 +1,44 @@
+\begin{hxmodule2}{NodeAtRegionMaximum}{PUT ONE SENTENCE SUMMARY HERE}
+
+\hxlabel{HxNodeAtRegionMaximum}
+\hxfeatureid{HxNodeAtRegionMaximum}
+
+\begin{hxdescription}
+ This module finds the maximum intensity of a 3D gray scale
+ image and returns a spatial graph with vertices at its
+ locations (can be more than one).\\
+ It is also possible to connect a label field with multiple
+ objects. The module will compute the maxima for each object
+ excluding the background.
+\end{hxdescription}
+
+\begin{hxconnections}
+\hxlabel{HxNodeAtRegionMaximum_data}
+\hxport{Data}{\tt [required]}\\
+ 3D scalar field.
+
+\hxlabel{HxNodeAtRegionMaximum_Regions}
+\hxport{Regions}{\tt [optional]}\\
+ 3D 8-bit label field with same size as input image.
+
+\end{hxconnections}
+
+\begin{hxports}
+\hxlabel{HxNodeAtRegionMaximum_Maxima}
+\hxport{Maxima}\\
+\hximage{HxNodeAtRegionMaximum_Maxima}\\
+ Choose \textit{global} if you want to compute the global
+ maximum of the gray scale image and \textit{in regions}
+ if you want to connect a label field with multiple objects
+ to compute the maximum for each object.\\
+
+\hxlabel{HxNodeAtRegionMaximum_RemoveBoundaryNodes}
+\hxport{RemoveBoundaryNodes}\\
+\hximage{HxNodeAtRegionMaximum_RemoveBoundaryNodes}\\
+ If you check this nodes at image boundaries will be removed.
+ This can avoid boundary value problems.\\
+
+
+\end{hxports}
+
+\end{hxmodule2}

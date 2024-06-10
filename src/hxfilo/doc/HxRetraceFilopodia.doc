@@ -1,0 +1,57 @@
+\begin{hxmodule2}{RetraceFilopodia}{PUT ONE SENTENCE SUMMARY HERE}
+
+\hxlabel{HxRetraceFilopodia}
+\hxfeatureid{HxRetraceFilopodia}
+
+\begin{hxdescription}
+This module recomputes the 3D path of segments of a SpatialGraph representing a
+growth cone with filopodia. When the algorithm or the parameters for
+tracing have been changed, this module allows to retrace previously
+created tracings with the current method.
+
+Dijkstra maps are generated on-the-fly using the gray-value images.
+
+An optional smoothing can be applied, such that edges have the same kind of
+smoothness as interactively traced edges.
+\end{hxdescription}
+
+\begin{hxconnections}
+\hxlabel{HxRetraceFilopodia_data}
+\hxport{Data}{\tt [required]}\\
+The SpatialGraph representing the original tracing.
+
+\end{hxconnections}
+
+\begin{hxports}
+\hxlabel{HxRetraceFilopodia_ImageDirectory}
+\hxport{Image Directory}\\
+\hximage{HxRetraceFilopodia_ImageDirectory}\\
+The directory containing the cropped gray-value images.
+
+\hxlabel{HxRetraceFilopodia_IntensityWeight}
+\hxport{Intensity weight}\\
+\hximage{HxRetraceFilopodia_IntensityWeight}\\
+The value used to weigh tracing length vs. intensity. Use the value set in the
+Filament Editor when the Dijkstra maps were generated.
+
+\hxlabel{HxRetraceFilopodia_TopBrightness}
+\hxport{Top brightness}\\
+\hximage{HxRetraceFilopodia_TopBrightness}\\
+Maximal brightness value used in the cost function (intensities above this
+value are clamped). Use the value set in the Filament Editor when the Dijkstra
+maps were generated.
+
+\hxlabel{HxRetraceFilopodia_ApplySmoothing}
+\hxport{Apply smoothing}\\
+\hximage{HxRetraceFilopodia_ApplySmoothing}\\
+Apply optional smoothing to all segments.
+
+\hxlabel{HxRetraceFilopodia_SurroundWidth}
+\hxport{Surround width (vx)}\\
+\hximage{HxRetraceFilopodia_SurroundWidth}\\
+The boundary width used when generating Dijkstra maps on-the-fly. Usually,
+leave this as-is.
+
+\end{hxports}
+
+\end{hxmodule2}

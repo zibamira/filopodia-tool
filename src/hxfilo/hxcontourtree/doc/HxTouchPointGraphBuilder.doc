@@ -1,0 +1,60 @@
+\begin{hxmodule2}{BuildContourGraph}{Build a graph of touching points between regions}
+
+\hxlabel{HxTouchPointGraphBuilder}
+\hxpackname{amira}
+
+\begin{hxdescription}
+  This module is based on the \link{HxPropagateContours}{PropagateContours}
+  module. Given a starting set of contours (seeding points) it keeps track of
+  the voxels lying on the border of each contour, and stores them in a global
+  Heap data structure. Then the border voxel with the maximal value is labeled
+  and adjoined to its corresponding contour. The unlabeled neighbours of the
+  voxel are added to the current set of border voxels. If among the neighbours
+  of the voxel there are voxels belonging to different contours, that voxel is
+  considered to be a touching point. The propagation stops either when the first
+  touching point is met or when a touching point with a value below a
+  user-defined {\em Scalar threshold} is met. Once the propagation of the
+  contours is over, it then builds a spatial graph, which contains the starting
+  points, the corresponding maximal points and the touching points between
+  different regions.
+\end{hxdescription}
+
+\begin{hxconnections}
+    \hxlabel{HxTouchPointGraphBuilder_data}
+    \hxport{Data}{\tt [required]}\\
+    The image data to be segmented.
+
+\end{hxconnections}
+
+\begin{hxports}
+    \hxlabel{HxTouchPointGraphBuilder_StopAt}
+    \hxport{Stop at}\\
+    \hximage{HxTouchPointGraphBuilder_StopAt}\\
+    This option sets the stopping condition for the propagation.
+
+    \hxlabel{HxTouchPointGraphBuilder_ScalarThreshold}
+    \hxport{Scalar threshold}\\
+    \hximage{HxTouchPointGraphBuilder_ScalarThreshold}\\
+    If the {\em Stop at} option is set to {\em Threshold}, then when a touching
+    point with a value lower than this threshold is met, the propagation of the
+    contours stops.
+
+    \hxlabel{HxTouchPointGraphBuilder_DisplayThreshold}
+    \hxport{Display threshold}\\
+    \hximage{HxTouchPointGraphBuilder_DisplayThreshold}\\
+    When multiple touching points are displayed, you can hide all the touching
+    points with a value lower than this threshold.
+
+    \hxlabel{HxTouchPointGraphBuilder_pointList}
+    \hxport{Point}\\
+    \hximage{HxTouchPointGraphBuilder_pointList}\\
+    The points from which the propagation of the contours begins.
+
+    \hxlabel{HxTouchPointGraphBuilder_pointSize}
+    \hxport{Point size}\\
+    \hximage{HxTouchPointGraphBuilder_pointSize}\\
+    The size of the points in the 3D View.
+
+\end{hxports}
+
+\end{hxmodule2}

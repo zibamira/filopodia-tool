@@ -1,0 +1,39 @@
+\begin{hxmodule2}{ConvertTif2AmiraMesh}{PUT ONE SENTENCE SUMMARY HERE}
+
+\hxlabel{HxConvertTif2AmiraMesh}
+\hxfeatureid{HxConvertTif2AmiraMesh}
+
+\begin{hxdescription}
+ \textit{ConvertTif2AmiraMesh} module allows to convert multiple tif
+ files to amira mesh files at once without specifying the
+ required voxel sizes for each file. 
+\end{hxdescription}
+
+\begin{hxports}
+\hxlabel{HxConvertTif2AmiraMesh_portInputDirectory}
+\hxport{Input Directory}\\
+\hximage{HxConvertTif2AmiraMesh_portInputDirectory}\\
+ Select the directory containing the tif files to convert by
+ browsing throw file directory.
+
+\hxlabel{HxConvertTif2AmiraMesh_portOutputDirectory}
+\hxport{Output Directory}\\
+\hximage{HxConvertTif2AmiraMesh_portOutputDirectory}\\
+ Select the directory where the converted amira mesh files
+ should be saved by browsing throw file directory.\\
+ If the folder is not empty old amira mesh files may be
+ overwritten if the filenames equal.
+
+\hxlabel{HxConvertTif2AmiraMesh_portVoxelSize}
+\hxport{Voxel Size}\\
+\hximage{HxConvertTif2AmiraMesh_portVoxelSize}\\
+ Set the voxel size of the tif files. Note that the voxel
+ size is identical for each tif file in the selected
+ directory. If tif files have different voxel sizes please
+ move them in seperate directories and handle them
+ separately.
+
+
+\end{hxports}
+
+\end{hxmodule2}

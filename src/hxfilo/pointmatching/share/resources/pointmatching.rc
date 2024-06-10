@@ -1,0 +1,8 @@
+# ----------------------------------------------------------------------
+# pointmatching package
+# ----------------------------------------------------------------------
+
+module -name "Test_PointMatching" \
+    -class "HxTest_PointMatching" \
+    -category "Test" \
+    -package "pointmatching"

@@ -1,4 +1,4 @@
-# Semi-automatic Geometrical Reconstruction and Analysis of Filopodia Dynamics in 4D Two-Photon Microscopy Images
+## Semi-automatic Geometrical Reconstruction and Analysis of Filopodia Dynamics in 4D Two-Photon Microscopy Images
 
 Here one can find supplementary source code and example datasets for the publication
 

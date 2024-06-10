@@ -1,8 +1,10 @@
 ## Semi-automatic Geometrical Reconstruction and Analysis of Filopodia Dynamics in 4D Two-Photon Microscopy Images
 
-Here one can find supplementary source code and example datasets for the publication
+Here one can find supplementary source code for the publication
 
 ADD PUBLICATION CITATION
+
+Additionally two example datasets of *R7* photoreceptos are provided, along with extensive user manual for the tool.
 
 It was developed at Zuse Institute Berlin (ZIB) and is provided under an ADD LICENCE.
 

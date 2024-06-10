@@ -6,7 +6,7 @@ ADD PUBLICATION CITATION
 
 Additionally two example datasets of *R7* photoreceptos are provided, along with extensive user manual for the tool.
 
-It was developed at Zuse Institute Berlin (ZIB) and is provided under an ADD LICENCE.
+The tool was developed at Zuse Institute Berlin (ZIB) and is provided under an ADD LICENCE.
 
 This source code implements an extension package to the commercial visualization software
 Amira. The package can be compiled against commercial Amira 2022.2 using the XPand extension.

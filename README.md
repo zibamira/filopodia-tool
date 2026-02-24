@@ -8,22 +8,21 @@ The tool was developed at the Zuse Institute Berlin (ZIB) and is provided under 
 
 This source code implements an extension package to the commercial visualization software Amira. The package can be compiled against commercial Amira 2022.2 using the XPand extension.
 
-If using our approach, please cite our [preprint](https://www.biorxiv.org/content/10.1101/2025.05.20.654789v2):
+If using our approach, please cite our [article](https://link.springer.com/article/10.1186/s12859-026-06385-4?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=oa_20260224&utm_content=10.1186/s12859-026-06385-4):
 ```
-Brence, B., Brummer, J., Dercksen, V. J., Özel, M. N., Kulkarni, A., Wolterhoff, N., ... & Baum, D. (2025).
-Semi-automatic Geometrical Reconstruction and Analysis of Filopodia Dynamics in 4D Two-Photon Microscopy Images. bioRxiv, 2025-05.
+Brence, B., Brummer, J., Dercksen, V.J. et al. Semi-automatic geometrical reconstruction and analysis of filopodia dynamics in 4D two-photon microscopy images. BMC Bioinformatics 27, 48 (2026). https://doi.org/10.1186/s12859-026-06385-4
 ```
 
 ```bibtex
-@article {brence2025,
+@article {brence2026,
 	author = {Brence, Bla{\v z} and Brummer, Josephine and Dercksen, Vincent J. and {\"O}zel, Mehmet Neset and Kulkarni, Abhishkek and Wolterhoff, Neele and Prohaska, Steffen and Hiesinger, Peter Robin and Baum, Daniel},
-	title = {Semi-automatic Geometrical Reconstruction and Analysis of Filopodia Dynamics in 4D Two-Photon Microscopy Images},
-	elocation-id = {2025.05.20.654789},
-	year = {2025},
-	doi = {10.1101/2025.05.20.654789},
-	publisher = {Cold Spring Harbor Laboratory},
-	URL = {https://www.biorxiv.org/content/early/2025/05/22/2025.05.20.654789},
-	eprint = {https://www.biorxiv.org/content/early/2025/05/22/2025.05.20.654789.full.pdf},
-	journal = {bioRxiv}
+	title     = {Semi-automatic geometrical reconstruction and analysis of filopodia dynamics in 4D two-photon microscopy images},
+	journal   = {BMC Bioinformatics},
+	year      = {2026},
+	volume    = {27},
+	pages     = {48},
+	doi       = {10.1186/s12859-026-06385-4},
+	url       = {https://doi.org/10.1186/s12859-026-06385-4},
+	publisher = {Springer}
 }
 ```
